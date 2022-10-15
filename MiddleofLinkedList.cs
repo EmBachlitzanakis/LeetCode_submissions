@@ -1,32 +1,19 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     public int val;
- *     public ListNode next;
- *     public ListNode(int val=0, ListNode next=null) {
- *         this.val = val;
- *         this.next = next;
- *     }
- * }
- */
 public class Solution {
-    public ListNode MiddleNode(ListNode head) {
-     if (head == null)
-            return head;
-        
-        ListNode middlePointer = head,EndPointer = head.next;
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        int k = 0;
+        List<int> list = new List<int>();
+        var distinctArray = nums1.Distinct().ToArray();
+        var distinctArray2 = nums2.Distinct().ToArray();
+        for(int i=0; i < distinctArray.Count() ; i++){
+            for(int j=0; j<distinctArray2.Count(); j++){
+                    if(distinctArray[i]==distinctArray2[j]){
+                        list.Add(distinctArray2[j]);
+                        break;
+                    }
+            }
 
-
-        while (Endpointer != null)
-        {
-            middlePointer = middlePointer.next;
-            
-            if (Endpointer.next == null)
-                Endpointer = null;
-            else
-                Endpointer = Endpointer.next.next;
         }
-        
-        remiddlePointerturn n1;
+          int[] results = list.ToArray();
+          return results;
     }
 }
